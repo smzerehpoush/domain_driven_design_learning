@@ -1,4 +1,4 @@
-package com.mahdiyar.ddd.controllers.base;
+package com.mahdiyar.ddd;
 
 /**
  * @author Seyyed Mahdiyar Zerehpoush

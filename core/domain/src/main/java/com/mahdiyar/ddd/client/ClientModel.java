@@ -1,5 +1,6 @@
-package com.mahdiyar.ddd;
+package com.mahdiyar.ddd.client;
 
+import com.mahdiyar.ddd.ModelBase;
 import lombok.Getter;
 import org.springframework.util.StringUtils;
 

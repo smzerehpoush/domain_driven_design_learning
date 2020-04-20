@@ -9,7 +9,9 @@ import java.util.Optional;
 public interface RepositoryBase<Model extends ModelBase<Identity>, Identity> {
     Optional<Model> findById(Identity id);
 
-    List<Model> findAll(int page, int pageSize, String order);
+    List<Model> findAll(int page, int pageSize, SortDirection sortDirection);
+
+    List<Model> findAll(PagedQuery pagedQuery);
 
     boolean existsById(Identity id);
 

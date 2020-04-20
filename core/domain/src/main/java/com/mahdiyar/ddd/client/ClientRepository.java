@@ -1,6 +1,6 @@
-package com.mahdiyar.ddd;
+package com.mahdiyar.ddd.client;
 
-import org.springframework.stereotype.Repository;
+import com.mahdiyar.ddd.RepositoryBase;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -8,7 +8,6 @@ import java.util.UUID;
 /**
  * @author Seyyed Mahdiyar Zerehpoush
  */
-@Repository
 public interface ClientRepository extends RepositoryBase<ClientModel, UUID> {
     Optional<ClientModel> findByName(String name);
 }
