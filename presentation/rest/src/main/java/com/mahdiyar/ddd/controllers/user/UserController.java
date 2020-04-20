@@ -8,6 +8,7 @@ import com.mahdiyar.ddd.controllers.user.dtos.UpdateUserRequestRequestDto;
 import com.mahdiyar.ddd.controllers.user.dtos.UserDto;
 import com.mahdiyar.ddd.user.UserModel;
 import io.swagger.annotations.Api;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,12 +32,15 @@ public class UserController extends GenericCrudController<
     }
 
     @Override
-    protected UserModel createModel(CreateUserRequestDto query) {
-        return null;
+    protected UserModel createModel(CreateUserRequestDto requestDto) {
+        return new UserModel(UUID.randomUUID(), requestDto.getUsername(), requestDto.getName());
     }
 
     @Override
-    protected UserModel updateModel(UserModel userModel, UpdateUserRequestRequestDto query) {
-        return null;
+    protected UserModel updateModel(UserModel userModel, UpdateUserRequestRequestDto requestDto) {
+        if (StringUtils.isEmpty(requestDto.getName()))
+            return userModel;
+        userModel.setName(requestDto.getName());
+        return userModel;
     }
 }
